@@ -4,5 +4,9 @@
 - [ ] create a roadmap with a checklist of things to do
 - [ ] find a similar repository on Github
 - [ ] clone a similar repository to the IS group
+- [ ] Outline the objectives and components of the project's scope
+- [ ] Use code base similar to https://github.com/TheBaum123/rock-paper-scissors.py for references
+- [ ] Create a functioning GUI to allow the user to click on the respective options of rock, paper, or scissors and submit their action.
 ## Team Members:
-* Just me
+* Mike Burkhardt
+* Anthony Sikes
