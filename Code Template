@@ -142,3 +142,4 @@ window.columnconfigure(2, weight=1)
 window.columnconfigure(3, weight=1)
 
 window.mainloop()
+#This code will be used as the template for the game that we will create we hope to make updates and improvements to this code to make it a more user friendly.
