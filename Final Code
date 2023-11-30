@@ -43,7 +43,71 @@ def player_choice_scissors():
     computer_choice = random.choice(possible_choices)
     submit()
 
+# #set label to You win
+def win():
+    global you_won_label
+    global you_lost_label
+    global tie_label
+    global player_score
+    global computer_score
+    player_score += 1
+    player.config(text="Player score: \n" + str(player_score))
+    if (player_score == 3):
+        player_score = 0
+        computer_score = 0
+        player.config(text="Player score: \n" + str(player_score))
+        computer.config(text="Computer score: \n" + str(computer_score))
+        win_screen = Tk()
+        win_screen.title("Winner!")
+        win_screen.geometry("200x100")
+        win_label = Label(win_screen, text="You won!")
+        win_label.grid(column=0, row=0)
+        win_screen.columnconfigure(0, weight=1)
+        win_screen.rowconfigure(0, weight=1)
+    you_won_label.grid_forget()
+    you_lost_label.grid_forget()
+    tie_label.grid_forget()
+    you_won_label.grid(row=4, column=2)
 
+
+#set label to You lose
+def lose():
+    global you_won_label
+    global you_lost_label
+    global tie_label
+    global computer_score
+    global player_score
+    computer_score += 1
+    computer.config(text="Computer score: \n" + str(computer_score))
+    if (computer_score == 3):
+        player_score = 0
+        computer_score = 0
+        computer.config(text="Computer score: \n" + str(computer_score))
+        player.config(text="Player score: \n" + str(player_score))
+        lose_screen = Tk()
+        lose_screen.title("Loser!")
+        lose_screen.geometry("200x100")
+        lose_label = Label(lose_screen, text="You lost!")
+        lose_label.grid(column=0, row=0)
+        lose_screen.columnconfigure(0, weight=1)
+        lose_screen.rowconfigure(0, weight=1)
+    you_won_label.grid_forget()
+    you_lost_label.grid_forget()
+    tie_label.grid_forget()
+    you_lost_label.grid(row=4, column=2)
+
+
+#set label to tie
+def tie():
+    global you_won_label
+    global you_lost_label
+    global tie_label
+    you_won_label.grid_forget()
+    you_lost_label.grid_forget()
+    tie_label.grid_forget()
+    tie_label.grid(row=4, column=2)
+
+#added GUI functionality to recognize win, lose, and tie labels that concider with player/computer choices
 
 #win detection
 def submit():
