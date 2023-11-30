@@ -1,0 +1,125 @@
+#Here is the code template we will be using and editing to create our own program of a similar nature.
+
+
+# import
+from tkinter import *
+import random
+from tkinter import font as tkFont
+
+#create a input for players to input their name.
+# create variables
+player_choice = ""
+computer_choice = ""
+output = ""
+player_and_computer_chose = ""
+player_score = 0
+computer_score = 0
+
+# possible decisions
+possible_choices = ["rock", "paper", "scissors"]
+
+
+# player chose button functions
+def player_choice_rock():
+    global player_choice
+    global computer_choice
+    player_choice = "rock"
+    computer_choice = random.choice(possible_choices)
+    submit()
+
+
+def player_choice_paper():
+    global player_choice
+    global computer_choice
+    player_choice = "paper"
+    computer_choice = random.choice(possible_choices)
+    submit()
+
+
+def player_choice_scissors():
+    global player_choice
+    global computer_choice
+    player_choice = "scissors"
+    computer_choice = random.choice(possible_choices)
+    submit()
+
+
+
+#win detection
+def submit():
+    global player_choice
+    global computer_choice
+    global you_won_label
+    global you_lost_label
+    if player_choice in possible_choices:
+        if player_choice == computer_choice:
+            tie()
+        if player_choice == "rock":
+            if computer_choice == "scissors":
+                win()
+            if computer_choice == "paper":
+                lose()
+        if player_choice == "paper":
+            if computer_choice == "rock":
+                win()
+            if computer_choice == "scissors":
+                lose()
+        if player_choice == "scissors":
+            if computer_choice == "paper":
+                win()
+            if computer_choice == "rock":
+                lose()
+        
+        #who chose what
+        player_choice_label = Label(window, text="Player chose: \n" + player_choice.capitalize(), font=(tkFont.Font(size=14)))
+        computer_choice_label = Label(window, text="Computer chose: \n" + computer_choice.capitalize(), font=(tkFont.Font(size=14)))
+        player_choice_label.grid(row=3, column=1)
+        computer_choice_label.grid(row=3, column=3)
+
+        #reset choices
+        player_choice = ""
+        computer_choice = ""
+
+
+# create window
+window = Tk()
+window.title("Rock, Paper, Scissors!")
+window.geometry("600x300")
+
+# Heading
+heading = Label(window, text="Pick one!", font=(tkFont.Font(size=12)))
+heading.grid(row=1, column=2)
+
+# scores
+player = Label(window, text="Player score: \n" + str(player_score), font=(tkFont.Font(size=16)))
+player.grid(row=1, column=1)
+
+computer = Label(window, text="Computer score: \n" + str(computer_score), font=(tkFont.Font(size=16)))
+computer.grid(row=1, column=3)
+
+# choose buttons
+rock_button = Button(window, text="Rock!", font=(tkFont.Font(size=18)), command=player_choice_rock, width=12, height=2, background="gray80", bd=0, activebackground="gray70")
+rock_button.grid(row=2, column=1, columnspan=1)
+
+paper_button = Button(window, text="Paper!", font=(tkFont.Font(size=18)), command=player_choice_paper, width=12, height=2, background="gray80", bd=0, activebackground="gray70")
+paper_button.grid(row=2, column=2, columnspan=1)
+
+scissors_button = Button(window, text="Scissors!", font=(tkFont.Font(size=18)), command=player_choice_scissors, width=12, height=2, background="gray80", bd=0, activebackground="gray70")
+scissors_button.grid(row=2, column=3, columnspan=1)
+
+# win/lose/tie label
+you_won_label = Label(window, text="You Won!", font=(tkFont.Font(size=12)))
+you_lost_label = Label(window, text="You lost. :(", font=(tkFont.Font(size=12)))
+tie_label = Label(window, text="You tied!", font=(tkFont.Font(size=12)))
+
+#configure grid layout
+window.rowconfigure(1, weight=1)
+window.rowconfigure(2, weight=1)
+window.rowconfigure(3, weight=1)
+window.rowconfigure(4, weight=1)
+window.columnconfigure(1, weight=1)
+window.columnconfigure(2, weight=1)
+window.columnconfigure(3, weight=1)
+
+window.mainloop()
+#This code will be used as the template for the game that we will create we hope to make updates and improvements to this code to make it a more user friendly.
