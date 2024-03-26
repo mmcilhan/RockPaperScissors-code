@@ -10,5 +10,4 @@
 - [ ] Create a function that displays the winner of the game after completion.
 - [ ] Have the GUI open in an external application separate from the IDE.
 ## Team Members:
-* Mike Burkhardt
-* Anthony Sikes
+* Marissa McIlhany
